@@ -1,5 +1,10 @@
-require "potatochop/version"
+require 'potatochop/version'
+require 'sinatra/base'
 
 module Potatochop
-  # Your code goes here...
+  class Web < Sinatra::Base
+    get '/' do
+      "Hello worldz."
+    end
+  end
 end
