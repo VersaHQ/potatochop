@@ -1,8 +1,10 @@
 # Potatochop
 
-TODO: Write a gem description
+Impetus: [Because F$%k Photoshop](http://2012.jsconf.eu/speaker/2012/08/29/because-f-k-photoshop.html)
 
 ## Installation
+
+Install Potatochop as a gem in the usual ways:
 
 Add this line to your application's Gemfile:
 
@@ -16,9 +18,25 @@ Or install it yourself as:
 
     $ gem install potatochop
 
+
 ## Usage
 
-TODO: Write usage instructions here
+To use Potatochop, you also need a folder where you keep your mock ups. Ideally this folder would be under version control, but it is not required.
+
+Once the potatochop gem is installed, cd into your comps directory and run `potatochop`.
+
+```
+$ cd comps_repo
+$ potatochop
+```
+
+This will start up the potatochop server on port XXXX. By default, potatochop will serve files in the same heirarchy as the mock ups folder.
+
+## The Mock Ups folder
+
+For lack of a better name, the folder where you store your haml, sass, js, etc. files is called the mock ups folder.
+
+With the default configuration, Potatochop processes and serves any haml or sass file in this folder. Html & javascript files are served directly.
 
 ## Contributing
 
