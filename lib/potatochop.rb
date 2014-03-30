@@ -24,5 +24,15 @@ module Potatochop
       end
     end
     
+    get %r{/(.*).(png|jpg|jpeg|gif)} do
+      # puts "params = #{params.to_json}"
+      file_path = File.join(settings.working_dir, "#{params[:captures][0]}.#{params[:captures][1]}")
+      if File.exists? file_path
+        send_file file_path
+      else
+        404
+      end
+    end
+    
   end
 end

@@ -29,5 +29,15 @@ describe 'Potatochop' do
       last_response.body.should match('body h1 {\s+color: red; }')
     end
 
+    it 'returns an error when a requested image file does not exist' do
+      get 'no_exist.png'
+      last_response.should_not be_ok
+    end
+    
+    it 'returns a requested image file when it exists' do
+      get '/img/potatochop_cs4_box.png'
+      last_response.should be_ok
+    end
+    
   end
 end
