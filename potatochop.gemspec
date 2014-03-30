@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["john@versahq.com"]
   gem.description   = %q{Potatochop - because F$%k Photoshop, that's why.}
   gem.summary       = %q{Potatochop is a simple server that compiles and serves up HAML and SASS files. The goal is to reduce friction between designers and devs in a Rails project.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/VersaHQ/potatochop"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
