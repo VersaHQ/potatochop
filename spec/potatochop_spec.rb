@@ -18,5 +18,16 @@ describe 'Potatochop' do
       get '/foo.html'
       last_response.body.should match('<h1>\s+This is an H1!\s+</h1>')
     end
+
+    it 'returns an error when a sass file does not exist' do
+      get 'no_exist.css'
+      last_response.should_not be_ok
+    end
+    
+    it 'renders a haml page that exists' do
+      get '/css/foo.css'
+      last_response.body.should match('body h1 {\s+color: red; }')
+    end
+
   end
 end

@@ -1,6 +1,7 @@
 require 'potatochop/version'
 require 'sinatra/base'
 require 'haml'
+require 'sass'
 
 module Potatochop
   class Web < Sinatra::Base
@@ -12,5 +13,16 @@ module Potatochop
         404
       end
     end
+    
+    get '/*.css' do
+      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.css.scss")
+      if File.exists? file_path
+        content_type 'text/css', :charset => 'utf-8'
+        Sass::Engine.new(File.read(file_path), :syntax => :scss).render
+      else
+        404
+      end
+    end
+    
   end
 end
