@@ -49,5 +49,15 @@ describe 'Potatochop' do
       last_response.should be_ok
     end
 
+    it 'returns an error when a requested javascript file does not exist' do
+      get '/no_exist.js'
+      last_response.should_not be_ok
+    end
+
+    it 'returns the requested javascript file if it exists' do
+      get '/js/bar.js'
+      last_response.should be_ok
+    end
+
   end
 end
