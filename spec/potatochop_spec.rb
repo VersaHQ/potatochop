@@ -19,6 +19,11 @@ describe 'Potatochop' do
       last_response.body.should match('<h1>\s+This is an H1!\s+</h1>')
     end
 
+    it 'renders an html page that exists' do
+      get '/bar.html'
+      last_response.body.should match('This page is static HTML')
+    end
+
     it 'returns an error when a sass file does not exist' do
       get 'no_exist.css'
       last_response.should_not be_ok

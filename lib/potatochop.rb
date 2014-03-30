@@ -6,9 +6,13 @@ require 'sass'
 module Potatochop
   class Web < Sinatra::Base
     get '/*.html' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.html.haml")
+      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.html")
+      # Static html first
       if File.exists? file_path
-        Haml::Engine.new(File.read(file_path)).render
+        send_file file_path
+      # Haml next
+      elsif File.exists? file_path + ".haml"
+        Haml::Engine.new(File.read("#{file_path}.haml")).render
       else
         404
       end
