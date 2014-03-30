@@ -19,10 +19,13 @@ module Potatochop
     end
     
     get '/*.css' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.css.scss")
+      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.css")
       if File.exists? file_path
         content_type 'text/css', :charset => 'utf-8'
-        Sass::Engine.new(File.read(file_path), :syntax => :scss).render
+        send_file file_path
+      elsif File.exists? file_path + '.scss'
+        content_type 'text/css', :charset => 'utf-8'
+        Sass::Engine.new(File.read("#{file_path}.scss"), :syntax => :scss).render
       else
         404
       end

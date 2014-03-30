@@ -29,9 +29,14 @@ describe 'Potatochop' do
       last_response.should_not be_ok
     end
 
-    it 'renders a haml page that exists' do
+    it 'renders a sass stylesheet that exists' do
       get '/css/foo.css'
       last_response.body.should match('body h1 {\s+color: red; }')
+    end
+    
+    it 'renders a static stylesheet that exists' do
+      get '/css/bar.css'
+      last_response.body.should match('body h1 { color: blue; }')
     end
 
     it 'returns an error when a requested image file does not exist' do
