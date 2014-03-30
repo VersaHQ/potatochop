@@ -23,14 +23,14 @@ Or install it yourself as:
 
 To use Potatochop, you also need a folder where you keep your mock ups. Ideally this folder would be under version control, but it is not required.
 
-Once the potatochop gem is installed, cd into your comps directory and run `potatochop`.
+Once the Potatochop gem is installed, cd into your comps directory and run `potatochop`.
 
 ```
 $ cd comps_repo
 $ potatochop
 ```
 
-This will start up the potatochop server on port XXXX. By default, potatochop will serve files in the same heirarchy as the mock ups folder.
+This will start up the Potatochop server on port 4567. By default, Potatochop will serve files in the same heirarchy as the mock ups folder.
 
 ## The Mock Ups folder
 
