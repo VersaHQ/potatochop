@@ -8,13 +8,17 @@ Gem::Specification.new do |gem|
   gem.version       = Potatochop::VERSION
   gem.authors       = ["John Mertens"]
   gem.email         = ["john@versahq.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Potatochop - because F$%k Photoshop, that's why.}
+  gem.summary       = %q{Potatochop is a simple server that compiles and serves up HAML and SASS files. The goal is to reduce friction between designers and devs in a Rails project.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.add_development_dependency 'sinatra'
+  gem.add_runtime_dependency 'sinatra'
+  gem.add_runtime_dependency 'haml'
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'simplecov'
 end
