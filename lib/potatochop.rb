@@ -1,34 +1,23 @@
 require 'potatochop/version'
+require 'potatochop/spud'
 require 'sinatra/base'
 require 'haml'
 require 'sass'
 
 module Potatochop
   class Web < Sinatra::Base
+
     get '/*.html' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.html")
-      # Static html first
-      if File.exists? file_path
-        send_file file_path
-      # Haml next
-      elsif File.exists? file_path + ".haml"
-        Haml::Engine.new(File.read("#{file_path}.haml")).render
-      else
-        404
-      end
+      tater = Potatochop::Spud.new(settings.working_dir)
+      return_str = tater.get_html(params[:splat][0])
+      return_str.nil? ? 404 : return_str
     end
     
     get '/*.css' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.css")
-      if File.exists? file_path
-        content_type 'text/css', :charset => 'utf-8'
-        send_file file_path
-      elsif File.exists? file_path + '.scss'
-        content_type 'text/css', :charset => 'utf-8'
-        Sass::Engine.new(File.read("#{file_path}.scss"), :syntax => :scss).render
-      else
-        404
-      end
+      tater = Potatochop::Spud.new(settings.working_dir)
+      return_str = tater.get_css(params[:splat][0])
+      content_type 'text/css', :charset => 'utf-8'
+      return_str.nil? ? 404 : return_str
     end
     
     get %r{/(.*).(png|jpg|jpeg|gif)} do
