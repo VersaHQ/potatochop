@@ -22,20 +22,12 @@ module Potatochop
     
     get %r{/(.*).(png|jpg|jpeg|gif)} do
       file_path = File.join(settings.working_dir, "#{params[:captures][0]}.#{params[:captures][1]}")
-      if File.exists? file_path
-        send_file file_path
-      else
-        404
-      end
+      File.exists? file_path ? send_file(file_path) : 404
     end
     
     get '/*.js' do
       file_path = File.join(settings.working_dir, "#{params[:splat][0]}.js")
-      if File.exists? file_path
-        send_file file_path
-      else
-        404
-      end
+      File.exists? file_path ? send_file(file_path) : 404
     end
   end
 end
