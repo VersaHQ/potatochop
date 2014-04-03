@@ -32,6 +32,8 @@ $ potatochop
 
 This will start up the Potatochop server on port 4567. By default, Potatochop will serve files in the same heirarchy as the mock ups folder.
 
+For example, if you start Potatochop in a folder with a file called `new_homepage.html.haml` you can see it in your browser at `http://localhost:4567/new_homepage.html`
+
 ## The Mock Ups folder
 
 For lack of a better name, the folder where you store your haml, sass, js, etc. files is called the mock ups folder.
