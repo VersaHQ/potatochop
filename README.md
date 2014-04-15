@@ -1,20 +1,11 @@
 # Potatochop
+_A simple server for HTML & SASS mock ups_
 
-Impetus: [Because F$%k Photoshop](http://2012.jsconf.eu/speaker/2012/08/29/because-f-k-photoshop.html)
+[VersaHQ blog post on Potatochop](http://blog.versahq.com/post/82290792427/potatochop)
 
 ## Installation
 
-Install Potatochop as a gem in the usual ways:
-
-Add this line to your application's Gemfile:
-
-    gem 'potatochop'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install Potatochop as a gem in the usual way:
 
     $ gem install potatochop
 
