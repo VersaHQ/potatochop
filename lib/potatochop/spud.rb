@@ -1,28 +1,26 @@
 module Potatochop
   class Spud
-    def initialize(source)
-      @source = source
+    def initialize(interface)
+      @interface = interface
+    end
+    
+    def get_file(file_name)
+      @interface.exists?(file_name) ? @interface.read(file_name) : nil
     end
     
     def get_html(file_name)
-      file_path = File.join(@source, "#{file_name}.html")
-      
-      # Static html first
-      if File.exists? file_path
-        #send_file file_path
-        File.read(file_path)
-      # Haml next
-      elsif File.exists? file_path + ".haml"
-        Haml::Engine.new(File.read("#{file_path}.haml")).render
+      if @interface.exists?("#{file_name}.html") # Static html first
+        @interface.read("#{file_name}.html")
+      elsif @interface.exists?("#{file_name}.html.haml") # Haml next
+        Haml::Engine.new(@interface.read("#{file_name}.html.haml")).render
       end
     end
     
     def get_css(file_name)
-      file_path = File.join(@source, "#{file_name}.css")
-      if File.exists? file_path
-        File.read(file_path)
-      elsif File.exists? file_path + '.scss'
-        Sass::Engine.new(File.read("#{file_path}.scss"), :syntax => :scss).render
+      if @interface.exists?("#{file_name}.css")  # Static css
+        @interface.read("#{file_name}.css")
+      elsif @interface.exists?("#{file_name}.css.scss") # Sass css
+        Sass::Engine.new(@interface.read("#{file_name}.css.scss"), :syntax => :scss).render
       end
     end
   end
