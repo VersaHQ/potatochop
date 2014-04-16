@@ -2,7 +2,7 @@ module Potatochop
   class FileSystemInterface
     attr_reader :source
 
-    def initialize(source)
+    def initialize(source, options = {})
       @source = source
     end
     
