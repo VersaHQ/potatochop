@@ -51,6 +51,8 @@ Out of the box, Potatochop processes and serves any haml or sass file in this fo
 		interactions.js
 ```
 
+** There is an example mock ups folder in the `spec/fake_mockups` folder (it's used by our automated tests).**
+
 When you want to include stylesheets in your haml/html pages, refer to them only by their `.css` extension. Using the above folder layout:
 
 ```
