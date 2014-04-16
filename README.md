@@ -22,10 +22,10 @@ Once the Potatochop gem is installed, cd into your comps directory and run `pota
 $ cd ~/mock_ups # or wherever you keep your mock_ups
 $ potatochop
 ```
-or pass in the path to your mock ups folder
+or pass in the path to your mock ups folder with the `--mockups` flag
 
 ```
-$ potatochop ~/mock_ups
+$ potatochop --mockups ~/mock_ups
 ```
 
 This will start up the Potatochop server on port 4567. By default, Potatochop will serve files in the same hierarchy as the mock ups folder.
@@ -58,6 +58,21 @@ When you want to include stylesheets in your haml/html pages, refer to them only
 ```
  # index.html.haml
  %link{ rel: 'stylesheet', href: 'css/index.css' }
+```
+## Serving files from a GitHub repo
+Let's say you have a repository on GitHub where you keep your mockups (i.e [https://github.com/mertonium/potatochop_comps](https://github.com/mertonium/potatochop_comps)).
+
+You can serve this repo by passing `potatochop` the `--interface` flag along with the repo path:
+
+```
+# Serve files from a public repository on GitHub
+$ potatochop --interface github --repo mertonium/potatochop_comps
+```
+If your mock ups folder is in a private repo, you must also pass `potatochop` the `--token` flag, along with a [personal access token](https://github.com/settings/tokens/new):
+
+```
+# Serve files from a private repository on GitHub
+$ potatochop --interface github --repo mertonium/potatochop_comps_private --token=GITHUB_ACCESS_TOKEN
 ```
 
 
