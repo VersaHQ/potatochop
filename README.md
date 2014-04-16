@@ -1,5 +1,5 @@
 # Potatochop
-_A simple server for HTML & SASS mock ups_
+_A simple server for HAML & SASS mock ups_
 
 [VersaHQ blog post on Potatochop](http://blog.versahq.com/post/82290792427/potatochop)
 
