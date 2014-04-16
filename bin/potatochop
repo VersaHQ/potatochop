@@ -2,5 +2,4 @@
 
 require 'potatochop'
 
-wd = ARGV[0] || '.'
-Potatochop::Web.run!(:working_dir => wd)
+Potatochop.start_up(ARGV)

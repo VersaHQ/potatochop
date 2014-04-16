@@ -1,52 +1,17 @@
 require 'potatochop/version'
-require 'sinatra/base'
+require 'potatochop/spud'
+require 'potatochop/file_system_interface'
+require 'potatochop/github_interface'
+require 'potatochop/configuration'
+require 'potatochop/web'
 require 'haml'
 require 'sass'
+require 'octokit'
 
 module Potatochop
-  class Web < Sinatra::Base
-    get '/*.html' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.html")
-      # Static html first
-      if File.exists? file_path
-        send_file file_path
-      # Haml next
-      elsif File.exists? file_path + ".haml"
-        Haml::Engine.new(File.read("#{file_path}.haml")).render
-      else
-        404
-      end
-    end
-    
-    get '/*.css' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.css")
-      if File.exists? file_path
-        content_type 'text/css', :charset => 'utf-8'
-        send_file file_path
-      elsif File.exists? file_path + '.scss'
-        content_type 'text/css', :charset => 'utf-8'
-        Sass::Engine.new(File.read("#{file_path}.scss"), :syntax => :scss).render
-      else
-        404
-      end
-    end
-    
-    get %r{/(.*).(png|jpg|jpeg|gif)} do
-      file_path = File.join(settings.working_dir, "#{params[:captures][0]}.#{params[:captures][1]}")
-      if File.exists? file_path
-        send_file file_path
-      else
-        404
-      end
-    end
-    
-    get '/*.js' do
-      file_path = File.join(settings.working_dir, "#{params[:splat][0]}.js")
-      if File.exists? file_path
-        send_file file_path
-      else
-        404
-      end
-    end
+  def self.start_up(args)
+    config = Configuration.process(args)
+    # Potatochop::Spud.new(config[:interface])
+    Potatochop::Web.run!(:tater => Potatochop::Spud.new(config[:interface]))
   end
 end

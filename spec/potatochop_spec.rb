@@ -6,7 +6,7 @@ end
 
 describe 'Potatochop' do
   describe 'Web' do
-    app.set('working_dir','/Users/mertonium/Code/potatochop/spec/fake_site')
+    app.set(:tater => Potatochop::Spud.new(Potatochop::FileSystemInterface.new('spec/fake_site')))
     include Rack::Test::Methods
 
     it 'returns an error when a haml page does not exist' do
