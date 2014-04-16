@@ -2,6 +2,7 @@
 _A simple server for HAML & SASS mock ups_
 
 [![Build Status](https://travis-ci.org/VersaHQ/potatochop.svg?branch=master)](https://travis-ci.org/VersaHQ/potatochop)
+[![Gem Version](https://badge.fury.io/rb/potatochop.svg)](http://badge.fury.io/rb/potatochop)
 
 [VersaHQ blog post on Potatochop](http://blog.versahq.com/post/82290792427/potatochop)
 
