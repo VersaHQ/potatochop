@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'thin'
   gem.add_runtime_dependency 'haml'
   gem.add_runtime_dependency 'sass'
+  gem.add_runtime_dependency 'octokit'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'simplecov'
