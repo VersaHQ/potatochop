@@ -1,1 +1,0 @@
-web: bundle exec potatochop --interface github --repo mertonium/potatochop_comps
