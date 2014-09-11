@@ -33,7 +33,19 @@ describe 'Potatochop' do
       get '/css/foo.css'
       last_response.body.should match('body h1 {\s+color: red; }')
     end
-    
+
+    it 'renders a sass stylesheet (with a mixin) that exists' do
+      get '/css/mixin_example.css'
+      expected_response = <<-VRSA
+body h1 {
+  background-color: red;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px; }
+VRSA
+      last_response.body.should == expected_response
+    end
+
     it 'renders a static stylesheet that exists' do
       get '/css/bar.css'
       last_response.body.should match('body h1 { color: blue; }')

@@ -1,0 +1,8 @@
+@import 'css/mixins';
+
+body {
+  h1 {
+    background-color: red;
+    @include round-corners(3px);
+  }
+}
