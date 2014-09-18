@@ -1,3 +1,7 @@
+## 0.0.4
+* Add the given `--mockups` path to the Sass `load_paths` array so mixins load properly.
+* Teach Potatochop to serve font files.
+
 ## 0.0.3
 * Tack down Thin dependency.
 

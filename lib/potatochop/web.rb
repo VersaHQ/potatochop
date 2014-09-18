@@ -32,5 +32,16 @@ module Potatochop
         js_file
       end
     end
+
+    get %r{/(.*).(woff2|woff|eot|ttf|svg)} do
+      font_file = settings.tater.get_file("#{params[:captures][0]}.#{params[:captures][1]}")
+      if font_file.nil?
+        404
+      else
+        content_type "application/octet-stream"
+        font_file
+      end
+    end
+
   end
 end
