@@ -1,5 +1,21 @@
+@font-face {
+  font-family: 'brawlerregular';
+  src: url('fonts/brawler-webfont.eot');
+  src: url('fonts/brawler-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/brawler-webfont.woff2') format('woff2'),
+       url('fonts/brawler-webfont.woff') format('woff'),
+       url('fonts/brawler-webfont.ttf') format('truetype'),
+       url('fonts/brawler-webfont.svg#brawlerregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   h1 {
     color: red;
   }
+  p {
+    font-family: 'brawlerregular';
+  }
 }
+
