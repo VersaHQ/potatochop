@@ -71,5 +71,9 @@ VRSA
       expect(last_response).to be_ok
     end
 
+    it 'returns the requested font file, if it exists' do
+      get '/css/fonts/brawler-webfont.woff2'
+      expect(last_response).to be_ok
+    end
   end
 end
